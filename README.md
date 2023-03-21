@@ -82,3 +82,59 @@ public class linkedlistmain {
 	}
 }
 ```
+<br><br><br><br><br>\
+## 스택 (Stack)
+스택은 제한적으로 접근할 수 있는 나열 구조입니다. <br><br>
+접근 방법은 언제나 목록의 끝에서만 일어납니다. <br><br>
+
+### 특징
+스택의 가장 큰 특징은 후입선출(LIFO) 입니다. <br><br> 
+가장 최근에 들어온 데이터가 가장 먼저 나간다는 의미입니다. <br><br>
+![image](https://user-images.githubusercontent.com/114748816/226506815-1c939186-8428-4cde-95c2-619c74489e11.png) <br><br>
+
+### 자바코드
+
+```java
+public class Stack {
+	private int[] stk;		// 스택용 배열
+	private int capacity;	// 스택의 크기
+	private int ptr;		// 스택 포인터
+	
+	// 실행시 예외: 스택이 비어있음
+	public class EmptyIntStackException extends RuntimeException {
+		public EmptyIntStackException() { }
+	}
+	
+	// 실행시 예외: 스택이 가득 참
+	public class OverflowIntStackException extends RuntimeException {
+		public OverflowIntStackException() { }
+	}
+	
+	// 생성자
+	public IntStack(int maxlen) {
+		ptr = 0;
+		capacity = maxlen;
+		try {
+			stk = new int[capacity];
+		}	catch (OutOfMemoryError e) {
+			capacity = 0;
+		}
+	}
+	
+	// 스택에 x를 푸시
+	public int push (int x) throws OverflowIntStackException {
+		if (ptr >= capacity)
+			throw new OverflowIntStackException();
+		return stk[ptr++] = x;
+	}
+	
+	// 스택에서 데이터를 팝(정상에 있는 데이터를 꺼냄)
+	public int pop() throws EmptyIntStackException {
+		if (ptr == 0) 
+			throw new EmptyIntStackException();
+		return stk[--ptr];
+	}
+}
+```
+
+
