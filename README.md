@@ -83,7 +83,7 @@ public class linkedlistmain {
 	}
 }
 ```
-<br><br><br><br><br>\
+<br><br><br><br><br>
 ## 스택 (Stack)
 스택은 제한적으로 접근할 수 있는 나열 구조입니다. <br><br>
 접근 방법은 언제나 목록의 끝에서만 일어납니다. <br><br>
