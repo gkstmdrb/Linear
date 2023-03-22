@@ -10,6 +10,9 @@
 각 노드는 데이터 요소를 가지고 있고, 다음 노드를 가리키는 포인터(pointer)를 포함합니다. <br><br>
 이러한 구조는 순서가 있는 데이터 요소를 효율적으로 저장하고 조작할 수 있습니다. <br><br>
 
+![image](https://user-images.githubusercontent.com/114748816/226807994-b7bcc14b-3cc9-4707-9ff1-114f0b36100a.png)
+
+
 ### 특징
 링크 값을 변화시키는 것 만으로 노드의 삽입 삭제가 용이하고, <br><br>
 연결 리스트는 늘어선 노드의 중간지점에서도 자료의 추가와 삭제가 O(1)의 시간에 가능하다는 장점을 갖습니다. <br><br>
@@ -141,7 +144,8 @@ public class Stack {
 ```
 
 ## 큐 (Queue)
-큐는 먼저 집어 넣은 데이터가 먼저 나오는 FIFO(First In First Out)구조로 저장하는 형식을 말합니다.
+큐는 먼저 집어 넣은 데이터가 먼저 나오는 FIFO(First In First Out)구조로 저장하는 형식을 말합니다. <br><br>
+![image](https://user-images.githubusercontent.com/114748816/226808156-434892db-6912-441e-a666-346545d57afd.png)
 
 ### 특징
 들어간 순서 그대로 나오는 것이 특징이고, <br>
