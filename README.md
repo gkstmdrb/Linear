@@ -140,4 +140,68 @@ public class Stack {
 }
 ```
 
+## 큐 (Queue)
+큐는 먼저 집어 넣은 데이터가 먼저 나오는 FIFO(First In First Out)구조로 저장하는 형식을 말합니다.
 
+### 특징
+들어간 순서 그대로 나오는 것이 특징이고, <br>
+큐에 가장 먼저 들어온 자료가 가장 먼저 삭제됩니다. <br><br>
+
+ 컴퓨터 시스템의 작업 스케줄에서 특별한 우선 순위가 없는 경우<br>
+ 먼저 들어온 프로세스가 먼저 처리됩니다.  
+ 
+ ### 자바코드
+ ```java
+ public class Queue {
+	
+	private int [] que;		// 큐용 배열
+	private int capacity;	// 큐의 크기
+	private int front;		// 
+	private int rear;
+	private int num;
+	
+	// 실행시 예외: 큐가 비어있음
+	public class EmptyIntQueueException extends RuntimeException {
+		public EmptyIntQueueException() {}
+	}
+	
+	// 실행시 예외: 큐가 가득참
+	public class OverflowIntQueueException extends RuntimeException {
+		public OverflowIntQueueException() {}
+	}
+	
+	// 생성자 (constructor)
+	public Queue(int maxlen) {
+		num = front = rear = 0;
+		capacity = maxlen;
+		try {
+			que = new int[capacity];				// 큐 본체용 배열을 생성
+			}	catch (OutOfMemoryError e) {		// 생성할 수 없음
+				capacity = 0;
+			}
+	}
+	
+	// 큐에 데이터를 인큐
+	public int enque(int x) throws OverflowIntQueueException {
+		if (num >= capacity) 
+			throw new OverflowIntQueueException();		// 큐가 가득참
+		que[rear++] = x;
+		num++;
+		if(rear == capacity)
+			rear = 0;
+	}
+	
+	// 큐에서 데이터를 디큐
+	public int deque() throws EmptyIntQueueException {
+		if (num <= 0)
+			throw new EmptyIntQueueException();			// 큐가 비어있음
+		int x = que[front++];
+		num--;
+		if (front == capacity)
+			front = 0;
+		return x;
+	}
+	
+	// 큐에서 데이터를 피크(프런트 데이터 들여다봄)
+}
+```
