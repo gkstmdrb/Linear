@@ -18,6 +18,9 @@
 연결 리스트는 늘어선 노드의 중간지점에서도 자료의 추가와 삭제가 O(1)의 시간에 가능하다는 장점을 갖습니다. <br><br>
 그러나 배열이나 트리 구조와는 달리 특정 위치의 데이터를 검색해 내는데에는 O(n)의 시간이 걸리는 단점도 갖고 있습니다. <br><br>
 또, 연결을 위한 링크(포인터) 부분이 필요하기 때문에 순차 리스트에 비해 기억공간 이용 효율이 좋지 않습니다. 
+### 단점
+크기가 고정되어 있어 사용하기 전에 배열 크기를 지정해야 합니다. <br><br>
+메모리를 한 덩어리로 차지하므로, 배열 크기가 클 경우 배열 전체를 위한 메모리를 할당받지 못하는 경우가 있습니다. <br><br>
 
 ### 자바코드
 ``` java
@@ -96,7 +99,11 @@ public class linkedlistmain {
 ### 특징
 스택의 가장 큰 특징은 후입선출(LIFO) 입니다. <br><br> 
 가장 최근에 들어온 데이터가 가장 먼저 나간다는 의미입니다. <br><br>
-![image](https://user-images.githubusercontent.com/114748816/226506815-1c939186-8428-4cde-95c2-619c74489e11.png) <br><br>
+![image](https://user-images.githubusercontent.com/114748816/226506815-1c939186-8428-4cde-95c2-619c74489e11.png)
+
+### 단점
+데이터 최대 개수를 미리 정해야 합니다. <br><br>
+저장 공간의 낭비가 발생할 수 있어 미리 최대 개수만큼의 저장 공간을 확보해야 합니다. <br><br>
 
 ### 자바코드
 
@@ -111,7 +118,7 @@ public class Stack {
 		public EmptyIntStackException() { }
 	}
 	
-	// 실행시 예외: 스택이 가득 참
+	// 실행시 예외: 스택이 가득참
 	public class OverflowIntStackException extends RuntimeException {
 		public OverflowIntStackException() { }
 	}
@@ -152,8 +159,10 @@ public class Stack {
 큐에 가장 먼저 들어온 자료가 가장 먼저 삭제됩니다. <br><br>
 
  컴퓨터 시스템의 작업 스케줄에서 특별한 우선 순위가 없는 경우<br>
- 먼저 들어온 프로세스가 먼저 처리됩니다.  
- 
+ 먼저 들어온 프로세스가 먼저 처리됩니다.  <br><br>
+ ### 단점
+ 앞에 있는 큐를 제거하고 데이터 전부를 앞으로 당긴다면 어떤 데이터를 빼내도 front의 값은 0이므로 굳이 큐라는 데이터를 구조를 사용할 이유가 없습니다. <br><br>
+ 앞에 요소를 한개 제거하고(dequeue) 첫번째인 front 위치를 한칸 뒤로 이동을 하게 되면, front가 +1 씩 커지면 앞에 있는 빈공간은 필요가 없어집니다. 
  ### 자바코드
  ```java
  public class Queue {
