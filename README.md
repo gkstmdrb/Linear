@@ -114,7 +114,7 @@ public class Stack {
 	}
 	
 	// 생성자
-	public IntStack(int maxlen) {
+	public Stack(int maxlen) {
 		ptr = 0;
 		capacity = maxlen;
 		try {
